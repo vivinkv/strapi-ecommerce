@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::item.item",
+      "mappedBy": "order"
+    },
+    "order_id": {
+      "type": "string"
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "orders"
+    },
+    "total": {
+      "type": "decimal"
+    },
+    "order_status": {
+      "type": "enumeration",
+      "enum": [
+        "Pending",
+        "Confirmed",
+        "Processing",
+        "Shipped",
+        "Delivered",
+        "Cancelled",
+        "Refunded",
+        "Failed"
+      ]
+    },
+    "payment_status": {
+      "type": "enumeration",
+      "enum": [
+        "Pending",
+        "Paid",
+        "Failed",
+        "Refunded",
+        "Expired"
+      ]
+    },
+    "payment_method": {
+      "type": "enumeration",
+      "enum": [
+        "Credit_Card",
+        "Debit_Card",
+        "Net_Banking",
+        "UPI",
+        "Wallet",
+        "Google_Pay",
+        "Voucher"
+      ]
+    }
+  }
+}

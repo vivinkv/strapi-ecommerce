@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "add_to_carts",
+  "info": {
+    "singularName": "add-to-cart",
+    "pluralName": "add-to-carts",
+    "displayName": "Add To Cart"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "content-manager": {
+      "visible": false
+    }
+  },
+  "attributes": {
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "add_to_carts"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    },
+    "price": {
+      "type": "biginteger"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "total_price": {
+      "type": "decimal"
+    }
+  }
+}

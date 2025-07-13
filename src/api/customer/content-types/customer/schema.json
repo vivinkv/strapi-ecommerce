@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customers",
+  "info": {
+    "singularName": "customer",
+    "pluralName": "customers",
+    "displayName": "Customer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "password": {
+      "type": "password"
+    },
+    "phone_number": {
+      "type": "string"
+    },
+    "otp": {
+      "type": "string"
+    },
+    "reset": {
+      "type": "boolean",
+      "default": false
+    },
+    "attempt": {
+      "type": "integer"
+    },
+    "blocked": {
+      "type": "boolean",
+      "default": false
+    },
+    "reset_time": {
+      "type": "time"
+    },
+    "addresses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::address.address",
+      "mappedBy": "customer"
+    },
+    "add_to_carts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::add-to-cart.add-to-cart",
+      "mappedBy": "customer"
+    },
+    "orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order.order",
+      "mappedBy": "customer"
+    }
+  }
+}
